@@ -1,3 +1,4 @@
+import dotenv from 'dotenv';
 import express from 'express';
 import cors from 'cors';
 import routes from './routes';
@@ -9,6 +10,8 @@ app.use(express.json())
 
 app.use(routes);
 
-app.listen(3333, () => {
+dotenv.config();
+
+app.listen(process.env.PORT || 3333, () => {
   console.log('Server started on port 3333');
 });
